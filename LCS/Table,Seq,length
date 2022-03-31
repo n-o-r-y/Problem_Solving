@@ -5,6 +5,7 @@ int main()
     char s1[100];
     char s2[100];
     scanf("%s %s", s1, s2);
+    //
     int l1 = strlen(s1);
     int l2 = strlen(s2);
     int lcs[l1 + 1][l2 + 1];
