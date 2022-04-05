@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long long int n,k,i,j;
+    scanf("%lld %lld",&n,&k);
+    long long int W[n+1],P[n+1],DP[n+1][k+1];
+    for(i=1;i<=n;i++){
+        scanf("%lld %lld",&W[i],&P[i]);
+    }
+     memset(DP,0,sizeof(DP));
+    for(i=1;i<=n;i++){
+        for(j=1;j<=k;j++){
+            DP[i][j]=DP[i-1][j];
+            if(j>=W[i]){
+                DP[i][j]=max(DP[i][j],DP[i-1][j-W[i]]+P[i]);
+            }
+        }
+    }
+
+    //table ta print
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= k; j++) {
+           printf(" %d ",DP[i][j]);
+        }
+        printf("\n");
+    }
+    
+    printf("%lld\n",DP[n][k]);
+    return 0;
+}
