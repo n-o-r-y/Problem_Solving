@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+int arr[100], arr2[100];
+int n;
+bool visited[100];
+int sum = 0;
+bool prime(int x)
+{
+	return (x % 2 != 0 && x % 3 != 0 && x % 5 != 0) || x == 2 || x == 3 || x == 5;
+}
+void permutation(int nisi)
+{
+	if (nisi == n)
+	{
+		sum = arr2[0] + arr2[n - 1];
+		if (prime(sum))
+		{
+			for (int i = 0; i < n; i++)
+			{
+				if (i)
+				{
+					printf(" ");
+				}
+				printf("%d", arr2[i]);
+			}
+			printf("\n");
+		}
+			return;
+	}
+	for (int i = 2; i <= n; i++)
+	{
+		if (visited[i] == 0)
+		{
+			sum = i + arr2[nisi - 1];
+			if (prime(sum))
+			{
+				visited[i] = 1;
+				arr2[nisi] = i;
+				permutation(nisi + 1);
+				visited[i] = 0;
+			}
+		}
+	}
+}
+int main()
+{
+   int i=1;
+	while(scanf("%d", &n)!=EOF){
+		if(i!=1)
+		{
+			printf("\n");
+		}
+	memset(visited, 0, sizeof(visited));
+	arr2[0] = 1;
+	visited[1] = 1;
+	printf("Case %d:\n",i);
+	i=i+1;
+	permutation(1);
+  }
+	return 0;
+}
