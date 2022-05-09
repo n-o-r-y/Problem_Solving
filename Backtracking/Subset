@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int arr[100],arr2[100],n,k=0;
+void subset(int at)
+{
+	if(at==n)
+	{
+		for(int i=0;i<k;i++)
+		{
+			if(at)
+			{
+				printf(" ");
+			}
+			printf("%d",arr2[i]);
+		}
+		printf("\n");
+		return;
+	}
+	arr2[k++]=arr[at];
+	subset(at+1);
+	//printf("nia---");
+	k--;
+	subset(at+1);
+	//printf("na nia---");
+}
+int main()
+{
+   scanf("%d",&n);
+   for(int i=0;i<n;i++)
+   {
+   	scanf("%d",&arr[i]);
+   }
+   subset(0);
+   return 0;
+}
