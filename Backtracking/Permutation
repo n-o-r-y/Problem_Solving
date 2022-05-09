@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+string str,str2;
+int n;
+bool visited[100];
+void permutation(int nisi)
+{
+	if(nisi==n)
+	{
+		cout<<str2<<endl;
+		return;
+	}
+	for(int i=0;i<n;i++)
+	{
+		if(visited[i]==0)
+		{
+			visited[i]=1;
+			str2+=str[i];//elemnt add string a
+ 			permutation(nisi+1);
+ 			
+ 			visited[i]=0;
+ 			str2.pop_back();
+ 			//permutation(nisi);
+		}
+	}
+}
+int main()
+{
+   cin>>str;
+   n=str.size();
+   memset(visited,0,sizeof(visited));
+   str2="";
+   permutation(0); 
+   return 0; 
+} 
