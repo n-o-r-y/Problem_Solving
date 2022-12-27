@@ -1,0 +1,39 @@
+    #include<bits/stdc++.h>
+    using namespace std;
+    #define FAST_IO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    #define n 20000000
+    bool prime[n+1];
+    unsigned long long int res[n+1];
+    void sieve_fun()
+    {
+        long long int c=1;
+        memset(prime,true,sizeof(prime));
+        for(long long int i=2;i*i<=n;i++)
+        {
+            if(prime[i]==true)
+            {
+                for(long long int j=i*2;j<=n;j+=i)
+                {
+                    prime[j]=false;
+                }
+            }
+        }
+        for(long long int i=2;i<=n;i++)
+        {
+            if(prime[i]== true && prime[i+2]==true)
+            {
+                res[c++]=i;
+            }
+        }
+    }
+     //main function
+    int main()
+    {
+        FAST_IO;
+        sieve_fun();
+        long long int m;
+        while(~scanf("%lld",&m)){
+           printf("(%lld, %lld)\n",res[m],res[m]+2);
+        }
+        return 0;
+    }
