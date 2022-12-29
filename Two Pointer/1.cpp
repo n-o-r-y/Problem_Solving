@@ -37,6 +37,7 @@ int main()
     }
     int x;
     scanf("%d",&x);
+    sort(arr,arr+n);
     int ans=solved(n,arr,x);
     if(ans==true)
     {
