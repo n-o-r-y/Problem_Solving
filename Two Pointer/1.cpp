@@ -1,4 +1,4 @@
-//@using pointer find the pair int the array whose sum in equal to x
+//@using two pointer find the pair int the array whose sum in equal to x
 #include<bits/stdc++.h>
 using namespace std;
 int v1,v2;
