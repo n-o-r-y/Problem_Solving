@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+    int n,m,t;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n;
+        int arr[n+10];
+        for(int i=0;i<n;i++)
+        {
+            scanf("%d",&arr[i]);
+        }
+       vector<int>v;
+       int s=0,d=0,m=0,i=0,j=n-1;
+       while(i<=j)
+       {
+           if(m%2==0)
+           {
+              v.push_back(arr[i]);
+              i++;
+           }
+           else
+           {
+               v.push_back(arr[j]);
+               j--;
+           }
+            m++;
+       }
+       for(auto& k: v)
+       {
+           std::cout << k << ' ';
+       }
+       cout<<endl;
+       v.clear();
+    }
+    return 0;
+}
