@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solved(int n,int arr[])
+{
+   int s=0,d=0,m=0,i=0,j=n-1;
+   while(i<=j)
+   {
+       if(m%2==0)
+       {
+           if(arr[i]>arr[j])
+           {
+               s+=arr[i];
+               i++;
+           }
+           else
+           {
+               s+=arr[j];
+               j--;
+           }
+       }
+       else
+       {
+            if(arr[i]>arr[j])
+           {
+               d+=arr[i];
+               i++;
+           }
+           else
+           {
+               d+=arr[j];
+               j--;
+           }
+       }
+       m++;
+   }
+   cout<<s<<" "<<d<<endl;
+}
+int main() {
+    int n,m;
+    cin>>n;
+    int arr[n+10];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    solved(n,arr);
+    return 0;
+}
