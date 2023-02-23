@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define ll long long int
+int main()
+{
+    
+    string str,r;
+      ll c=0,m=0;
+    while(1)
+    {
+        cin>>str;
+        c=0;
+        if(str=="E-N-D")
+        {
+            break;
+        }
+        string ans="";
+        for(ll i=0;i<str.size();i++)
+        {
+            if((str[i]>='a' && str[i]<='z')||(str[i]>='A' && str[i]<='Z')|| (str[i]=='-'))
+            {
+                c++;
+                ans+=str[i];
+            }
+        }
+        if(c>m)
+        {
+            m=c;
+            r=ans;
+        }
+        for(ll i=0;i<r.size();i++)
+        {
+            if(r[i]>='A' && r[i]<='Z')
+            {
+                r[i]+=32;
+            }
+        }
+    }
+     cout<<r<<endl;
+    return 0;
+}
